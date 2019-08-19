@@ -1,0 +1,37 @@
+  .carousel-inner{
+       height: 500px;
+       width:  100%;
+    }
+
+    .item, img{
+       
+        border: 0px solid black;
+        heigth:100px;
+    }
+    h5{
+
+        
+      height: 100%;
+      
+      text-align: center;
+      font-size:70px ;
+      color:  white;
+
+
+    }
+    .carousel-control-prev-icon,.carousel-control-next-icon
+    {
+     margin-top:250px;
+     color:white;
+         
+    }
+      img
+    {
+    width:100px;
+    height:500px;}
+.carousel
+{
+margin:10% 1% 5% 1%;
+height:300px;
+
+}

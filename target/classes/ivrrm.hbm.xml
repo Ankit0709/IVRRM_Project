@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping package="beans">
+   	 
+   	
+   	 
+    <!-- Mapping For User -->
+    <class name="User" table="User_Details">
+      <id name="user_id" column="User_ID">
+       <generator class="assigned"></generator>
+      </id>
+      <property name="email_id" column="Email_ID" not-null="false"></property>
+      <property name="username" column="User_name" not-null="false"></property>
+      <property name="password" column="Password" not-null="false"></property>
+      <property name="mobile" column="Contact_No" not-null="false"></property>
+      <set name="setOfProducts" table="Product_User" cascade="all" lazy="false">
+          <key column="fk_User_id"></key>
+         <many-to-many class="Product" column="fk_product_id"/>
+       </set>
+    </class>
+    
+   
+    
+    
+    
+    <!-- Mapping for Vendor -->
+    <class name="Vendor" table="Vendor_Details">
+    <id name="cust_id" column="Vendor_ID">
+       <generator class="assigned"></generator>
+     </id>
+     <property name="emailid" column="Vendor_Email"></property>
+      <property name="username" column="Vendor_name" not-null="false"></property>
+      <property name="password" column="Password" not-null="false"></property>
+      <property name="mobile" column="Contact_No" not-null="false"></property>
+      <property name="shop_name" column="Shop_Name" not-null="false"></property>   
+       <property name="shop_address" column="Shop_Address" not-null="false"></property>  
+         <property name="pincode" column="PinCode" not-null="false"></property>    	  	
+       <property name="city" column="City" not-null="false"></property>  
+       <property name="verified" column="Verfied" not-null="false"></property>
+       <property name="market" column="Market" not-null="false"></property>  
+       <property name="paytm_no" column="Paytm_No" not-null="false"></property>  
+       <property name="shop_image" column="Shop_Image" not-null="false"></property> 	 	
+        <set name="setOfProducts" table="Product_Vendor" cascade="all" lazy="false">
+          <key column="fk_Vendor_id"></key>
+         <many-to-many class="Product" column="fk_product_id"/>
+         </set>
+    </class>
+    
+      <!-- Mapping for Product -->
+    <class name="Product" table="Product_Details">
+     <id name="p_id" column="Product_ID">
+       <generator class="assigned"></generator>
+     </id>
+     <property name="name" column="Product_Name"></property>
+     <property name="price" column="Product_Price"></property>
+     <property name="desc" column="Product_Description"></property>
+     <property name="category" column="Product_Category"></property>
+    
+     <property name="quantity" column="Quantity"></property>
+     <property name="pics" column="Product_images"></property>
+    </class>
+    
+    
+    <!--Mapping for Cart  -->
+     <class name="Cart" table="Cart_Details">
+     <id name="id" column="Cart_ID">
+       <generator class="increment"></generator>
+      </id>
+      
+     <property name="p_id" column="Product_Id" not-null="false"></property>
+       <property name="customer" column="Customer_name" not-null="false"></property>
+	   </class> 
+   </hibernate-mapping>
